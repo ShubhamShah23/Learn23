@@ -11,7 +11,8 @@ def index():
         notes.append(note)
         delete = request.form.get("delete")
         if delete:
-            del notes[delete]
+            delete = int(delete)
+            del notes[delete-1]
         else:
             pass
     return render_template("index.html", notes=notes)
